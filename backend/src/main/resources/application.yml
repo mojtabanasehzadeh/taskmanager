@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      database: tasknotification
+  graphql:
+    graphiql:
+      enabled: true
+    path: /graphql
+  application:
+    name: task-notification-system
+
+server:
+  port: 8080

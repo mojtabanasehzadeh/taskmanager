@@ -1,0 +1,5 @@
+rootProject.name = 'taskmanager'
+include 'backend'
+include 'common'
+include 'mobile'
+
