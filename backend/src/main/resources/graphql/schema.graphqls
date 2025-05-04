@@ -1,0 +1,47 @@
+scalar DateTime
+
+type Task {
+    id: ID
+    title: String!
+    description: String
+    deadline: DateTime
+    completed: Boolean!
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
+type Notification {
+    id: ID
+    title: String!
+    message: String!
+    taskId: ID!
+    read: Boolean!
+    createdAt: DateTime
+}
+
+type Query {
+    tasks: [Task]
+    task(id: ID!): Task
+    notifications: [Notification]
+    unreadNotifications: [Notification]
+}
+
+input TaskInput {
+    title: String!
+    description: String
+    deadline: DateTime
+}
+
+input NotificationMarkReadInput {
+    id: ID!
+}
+
+type Mutation {
+    createTask(input: TaskInput!): Task
+    updateTaskStatus(id: ID!, completed: Boolean!): Task
+    markNotificationAsRead(input: NotificationMarkReadInput!): Notification
+}
+
+type Subscription {
+    notificationAdded: Notification
+}
